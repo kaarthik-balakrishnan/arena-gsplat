@@ -1,0 +1,23 @@
+# Central config for the arena-gsplat pipeline.
+# The notebook reads these defaults; override any of them per run.
+
+project: my_scene            # name your scene; becomes the Drive subfolder
+
+ingest:
+  is_video: null             # null = auto-detect from file extension
+  fps: 2.0                   # frames/sec to pull from video
+  max_images: 0              # 0 = keep all; else evenly subsample to this many
+  blur_drop_fraction: 0.0    # 0.0-0.9: drop this fraction of blurriest frames
+  resize_max_dim: 1600       # long-edge cap in px (0 = original resolution)
+
+colmap:
+  camera_model: OPENCV       # OPENCV = safe default; SIMPLE_RADIAL for clean phone lens
+  single_camera: true        # true if all images are from the same camera
+  matcher: null              # null = auto: sequential(video) / exhaustive(<=150) / vocab_tree(>150)
+  exhaustive_max: 150        # switch to vocab_tree above this many images
+  use_gpu: true
+
+train:
+  max_steps: 30000           # paper default; 7000 for a quick test
+  data_factor: 1             # 1 = full res; raise to 2/4 if you run out of VRAM
+  strategy: default          # 'default' (paper densification) or 'mcmc' (fixed budget)

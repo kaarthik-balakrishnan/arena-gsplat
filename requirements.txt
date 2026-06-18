@@ -1,0 +1,10 @@
+# Installed on Colab by the notebook's setup cell.
+# COLMAP itself is a system binary (apt-get install colmap), not a pip package.
+torch
+torchvision
+gsplat
+plyfile
+opencv-python-headless
+numpy
+pyyaml
+tqdm

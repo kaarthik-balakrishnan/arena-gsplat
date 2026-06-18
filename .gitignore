@@ -1,0 +1,19 @@
+# Never commit datasets, models, or Colab/Drive working files.
+*.ply
+*.splat
+*.pt
+*.ckpt
+*.zip
+*.mp4
+*.mov
+images/
+_raw_frames/
+colmap/
+dense/
+gsplat_result/
+outputs/
+state.json
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# Small test/sample inputs are fine; force-add them explicitly if needed.
